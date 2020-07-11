@@ -1,8 +1,9 @@
 import telebot
 import eliza
+import sys
 
 therapist = eliza.eliza()
-bot = telebot.TeleBot("1206457679:AAGlp-MAJ2Ug517AO8CVYlmcooI964dhtuY")
+bot = telebot.TeleBot(sys.argv[1])
 
 from datetime import datetime
 
@@ -27,4 +28,5 @@ with open("log\log_"+current_time+".txt","w+") as f:
 		f.write(name + ": " + message.text + "\n")
 		f.write("TO " + name + " " + user.last_name + ": " + reply + "\n")
 
+	print("Running MyElizaPsychologistBot.py")
 	bot.polling()
