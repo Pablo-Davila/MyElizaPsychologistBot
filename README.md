@@ -1,8 +1,6 @@
-# <p align="center">ChumbiTestBot</p>
+# <p align="center">MyElizaPsychologistBot</p>
 
-A Telegram bot based on <a href="https://github.com/eternnoir/pyTelegramBotAPI">pyTelegramBotAPI</a>.
+This Telegram bot implements the famous Eliza psychologist, provided in Python at [eliza.py](https://github.com/jezhiggins/eliza.py) by @jezhiggins.
+It is based on [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI"), a Python simple implementation for the [Telegram Bot API](https://core.telegram.org/bots/api).
 
-**Current Bots**
- * [ChumbiTestBot](https://t.me/ChumbiTestBot)
- * [Psychologist](https://t.me/MyElizaPsychologistBot)
- * [TasksListsBot](https://t.me/TasksListsBot)
+**Try it in Telegram**: [Psychologist](https://t.me/MyElizaPsychologistBot)
