@@ -5,5 +5,12 @@ It is based on [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI"
 
 **Try it in Telegram**: [Psychologist](https://t.me/MyElizaPsychologistBot)
 
+## Usage
+Simply run TasksListsBot.py with a previously [registered](https://core.telegram.org/bots#6-botfather) bot's token as an argument.
+
+```
+$ python TasksListsBot WriteYourTelegramBotTokenHere
+```
+
 ## Demo
 ![Conversation demo](/img/2020-06-19%20Demo.png)
