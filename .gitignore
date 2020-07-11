@@ -2,3 +2,4 @@
 /data
 /log
 *.bat
+*.pyc
