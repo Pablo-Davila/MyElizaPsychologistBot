@@ -18,9 +18,6 @@ def echo_all(message):
 	
 	reply = therapist.respond(message.text)
 	bot.send_message(cid, reply)
-	
-	user = message.from_user
-	name = str(user.first_name) + " " + str(user.last_name)
 
 @bot.message_handler(commands=["git", "github", "source", "src"])
 def command_github(message):
