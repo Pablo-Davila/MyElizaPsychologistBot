@@ -9,7 +9,7 @@ bot = telebot.TeleBot(sys.argv[1])
 def send_welcome(message):
 	'''Welcome message.'''
 	user = message.from_user
-	bot.reply_to(message, "Hello " + user.first_name + " " + user.last_name + ".\nHow are you feeling today? Please answer me in English.")
+	bot.reply_to(message, f"Hello {user.first_name if user.first_name else ''} {user.last_name if user.last_name else ''}.\nHow are you feeling today? Please answer me in English.")
 
 @bot.message_handler(func=lambda msg: msg.text[0]!="/")
 def echo_all(message):
