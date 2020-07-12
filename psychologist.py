@@ -11,7 +11,7 @@ def send_welcome(message):
 	user = message.from_user
 	bot.reply_to(message, "Hello " + user.first_name + " " + user.last_name + ".\nHow are you feeling today? Please answer me in English.")
 
-@bot.message_handler(func=lambda message: message.text!="/start")
+@bot.message_handler(func=lambda msg: msg.text[0]!="/")
 def echo_all(message):
 	'''Answer for each new message.'''
 	cid = message.chat.id
@@ -22,5 +22,11 @@ def echo_all(message):
 	user = message.from_user
 	name = str(user.first_name) + " " + str(user.last_name)
 
-print("Running MyElizaPsychologistBot.py")
+@bot.message_handler(commands=["git", "github", "source", "src"])
+def command_github(message):
+	cid = message.chat.id
+	
+	bot.send_message(cid, "Puedes encontrar el código fuente de este bot en [GitHub](https://github.com/Pablo-Davila/MyElizaPsychologistBot)", parse_mode='Markdown')
+	
+print("\nRunning MyElizaPsychologistBot.py")
 bot.polling()
