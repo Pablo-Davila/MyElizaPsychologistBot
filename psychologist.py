@@ -4,6 +4,16 @@ import sys
 
 therapist = eliza.eliza()
 bot = telebot.TeleBot(sys.argv[1])
+
+def isMessageText(object):
+    try:
+        if object.content_type == "text":
+            return True
+        else:
+            return False
+    except:
+        print("Warning: Object checked for text mesage is not even message\n", object)
+        return False
 	
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
@@ -11,13 +21,13 @@ def send_welcome(message):
 	user = message.from_user
 	bot.reply_to(message, f"Hello {user.first_name if user.first_name else ''} {user.last_name if user.last_name else ''}.\nHow are you feeling today? Please answer me in English.")
 
-@bot.message_handler(func=lambda msg: msg.text[0]!="/")
+@bot.message_handler(func=lambda msg: isMessageText(msg))
 def echo_all(message):
-	'''Answer for each new message.'''
-	cid = message.chat.id
-	
-	reply = therapist.respond(message.text)
-	bot.send_message(cid, reply)
+    '''Answer for each new message.'''
+    cid = message.chat.id
+    if message.text[0]!="/":
+        reply = therapist.respond(message.text)
+        bot.send_message(cid, reply)
 
 @bot.message_handler(commands=["git", "github", "source", "src"])
 def command_github(message):
