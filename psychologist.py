@@ -19,7 +19,15 @@ def isMessageText(object):
 def send_welcome(message):
 	'''Welcome message.'''
 	user = message.from_user
-	bot.reply_to(message, f"Hello {user.first_name if user.first_name else ''} {user.last_name if user.last_name else ''}.\nHow are you feeling today? Please answer me in English.")
+	bot.reply_to(
+        message,
+        f"Hi {user.first_name if user.first_name else 'there!'}{' '+user.last_name if user.last_name else ''}.\nHow are you feeling today? Please answer me in English.")
+
+@bot.message_handler(commands=["git", "github", "source", "src"])
+def command_github(message):
+	cid = message.chat.id
+	
+	bot.send_message(cid, "You can find the source code of this bot in [GitHub](https://github.com/Pablo-Davila/MyElizaPsychologistBot)", parse_mode='Markdown')
 
 @bot.message_handler(func=lambda msg: isMessageText(msg))
 def echo_all(message):
@@ -28,12 +36,6 @@ def echo_all(message):
     if message.text[0]!="/":
         reply = therapist.respond(message.text)
         bot.send_message(cid, reply)
-
-@bot.message_handler(commands=["git", "github", "source", "src"])
-def command_github(message):
-	cid = message.chat.id
-	
-	bot.send_message(cid, "Puedes encontrar el código fuente de este bot en [GitHub](https://github.com/Pablo-Davila/MyElizaPsychologistBot)", parse_mode='Markdown')
 	
 print("\nRunning MyElizaPsychologistBot.py")
 bot.polling()
