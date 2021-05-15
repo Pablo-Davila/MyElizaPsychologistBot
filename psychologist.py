@@ -1,6 +1,6 @@
-import telebot
-import eliza
 import sys
+import telebot
+from . import eliza
 
 therapist = eliza.eliza()
 bot = telebot.TeleBot(sys.argv[1])
@@ -28,6 +28,11 @@ def command_github(message):
 	cid = message.chat.id
 	
 	bot.send_message(cid, "You can find the source code of this bot in [GitHub](https://github.com/Pablo-Davila/MyElizaPsychologistBot)", parse_mode='Markdown')
+    
+@bot.message_handler(commands=["id"])
+def command_id(message):
+	cid = message.chat.id
+	bot.send_message(cid,f"Your chat id is {cid}")
 
 @bot.message_handler(func=lambda msg: isMessageText(msg))
 def echo_all(message):
