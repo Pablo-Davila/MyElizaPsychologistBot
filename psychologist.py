@@ -1,6 +1,6 @@
 import sys
 import telebot
-from . import eliza
+import eliza
 
 therapist = eliza.eliza()
 bot = telebot.TeleBot(sys.argv[1])
