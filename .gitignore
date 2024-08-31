@@ -1,5 +1,5 @@
-# My custom
-/data
-/log
+.venv/
+data/
+log/
 *.bat
 *.pyc
