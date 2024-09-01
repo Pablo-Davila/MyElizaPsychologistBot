@@ -1,0 +1,6 @@
+services:
+  psychologist:
+    container_name: psychologist
+    build: .
+    env_file: .env
+    restart: always
