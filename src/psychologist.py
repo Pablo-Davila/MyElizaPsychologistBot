@@ -1,11 +1,17 @@
-import sys
+
+import os
 
 import telebot
 
 import eliza
 
-therapist = eliza.eliza()
-bot = telebot.TeleBot(sys.argv[1])
+token = os.getenv("BOT_TOKEN")
+if token is None:
+    print("Error: No token provided")
+    exit(1)
+
+therapist = eliza.Eliza()
+bot = telebot.TeleBot(token)
 
 
 def is_message_text(object):

@@ -1,5 +1,5 @@
 .venv/
 data/
 log/
-*.bat
+*.env
 *.pyc
