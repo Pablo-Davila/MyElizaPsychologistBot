@@ -11,16 +11,12 @@ It is based on [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI"
 
 ## Usage
 
-To run your own instance of this bot is to [register a new Telegram bot](https://core.telegram.org/bots#6-botfather). After that, you have to create a ".env" file in the repository root with the following format:
-
-```
-BOT_TOKEN=your_bot_token_here
-```
-
-Now, you can proceed with options 1 or 2.
+To run your own instance of this bot you must first [register a new Telegram bot](https://core.telegram.org/bots#6-botfather). Once you have a token for your bot, you may proceed with options 1 or 2.
 
 
 ### Option 1: Manual execution
+
+First, you have to create an environment variable called "BOT_TOKEN" with the token you obtained in the previous step. After that, you only need the following terminal command:
 
 ```Bash
 python ./src/psychologist.py
@@ -30,6 +26,14 @@ This will run the bot attached to your current terminal. If you want it to stay 
 
 
 ### Option 2: Docker container (recommended)
+
+First, you have to create a ".env" file in the repository root with the following format:
+
+```
+BOT_TOKEN=your_bot_token_here
+```
+
+Now, you can run the bot with a single `docker` command:
 
 ```Bash
 docker compose up -d --build
